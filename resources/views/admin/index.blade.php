@@ -8,6 +8,7 @@
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" href="{{asset('/css/font-awesome.min.css')}}">
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('/images/favicon.ico') }}">
 
