@@ -16,8 +16,6 @@ class LoggedMerchant
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
-
         if (!Auth::user()){
             flash("Vous devez être connecté pour voir cette page.")->error();
             return redirect('/connexion');
