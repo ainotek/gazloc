@@ -5,6 +5,7 @@
     use App\Http\Controllers\Controller;
     use App\Models\Store;
     use App\Models\User;
+    use Carbon\Carbon;
     use Exception;
     use Illuminate\Http\Request;
     use Illuminate\Http\Response;
@@ -90,16 +91,14 @@
         protected function createStore(array $data)
         {
             return Store::create([
-                'memberships_id' => 1,
                 'name' => $data['name'],
                 'city' =>  $data['city'],
                 'email' => $data['email'],
-                'password' => Hash::make($data['password']),
                 'role' => 'MERCHANT',
                 'rating' => 0,
                 'voted' => 0,
-                'active' => true,
-                'expire_at' => new \DateTime(),
+                'active' => false,
+                'expire_at' => Carbon::now()->addYear()->format("Y-m-d H:i:s"),
             ]);
         }
 
