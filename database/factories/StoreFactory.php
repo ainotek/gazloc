@@ -7,9 +7,7 @@ use App\Models\Membership;
 use Faker\Generator as Faker;
 
 $factory->define(Store::class, function (Faker $faker) {
-    $membership = Membership::all()->pluck('id')->toArray();
     return [
-        'registration' => $faker->swiftBicNumber,
         'phone' => $faker->randomNumber(8, false),
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -21,7 +19,7 @@ $factory->define(Store::class, function (Faker $faker) {
         'active' => $faker->boolean(90),
         'city' => $faker->city,
         'location' => $faker->text(200),
-        'memberships_id' => $faker->randomElement($membership),
+        'picture'=>$faker->imageUrl($width = 640, $height = 480),
         'expire_at' => $faker->dateTimeBetween('now', '2 years')
     ];
 });

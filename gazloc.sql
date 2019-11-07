@@ -132,6 +132,8 @@ CREATE TABLE IF NOT EXISTS `kenza_db`.`products` (
   `name` VARCHAR(255) NULL,
   `desciption` VARCHAR(255) NULL,
   `suppliers_id` INT NOT NULL,
+  `created_at` DATETIME NULL DEFAULT now(),
+  `updated_at` DATETIME NULL DEFAULT now() on update now(),
   PRIMARY KEY (`id`),
   INDEX `fk_products_suppliers1_idx` (`suppliers_id` ASC),
   CONSTRAINT `fk_products_suppliers1`
@@ -148,7 +150,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `kenza_db`.`orders` ;
 
 CREATE TABLE IF NOT EXISTS `kenza_db`.`orders` (
-  `id` BIGINT(20) NOT NULL,
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `customers_id` INT NOT NULL,
   `state` VARCHAR(255) NULL,
   `order_number` INT NULL,
@@ -175,6 +177,8 @@ CREATE TABLE IF NOT EXISTS `kenza_db`.`hours` (
   `day` INT NULL,
   `open` TIME NULL,
   `close` TIME NULL,
+  `created_at` DATETIME NULL DEFAULT NOW(),
+  `updated_at` DATETIME NULL DEFAULT NOW() ON UPDATE NOW(),
   PRIMARY KEY (`id`),
   INDEX `fk_hours_stores1_idx` (`stores_id` ASC),
   CONSTRAINT `fk_hours_stores1`
@@ -194,6 +198,8 @@ CREATE TABLE IF NOT EXISTS `kenza_db`.`services` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NULL,
   `description` VARCHAR(255) NULL,
+  `created_at` DATETIME NULL DEFAULT now(),
+  `updated_at` DATETIME NULL DEFAULT now() on update now(),
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC))
 ENGINE = InnoDB;
@@ -291,8 +297,10 @@ DROP TABLE IF EXISTS `kenza_db`.`product_orders` ;
 CREATE TABLE IF NOT EXISTS `kenza_db`.`product_orders` (
   `id` INT NOT NULL,
   `products_id` INT NOT NULL,
-  `orders_id` BIGINT(20) NOT NULL,
   `quantity` INT NULL,
+  `orders_id` BIGINT(20) NOT NULL,
+  `created_at` DATETIME NULL DEFAULT now(),
+  `updated_at` DATETIME NULL DEFAULT now() on update now(),
   PRIMARY KEY (`id`),
   INDEX `fk_product_orders_products1_idx` (`products_id` ASC),
   INDEX `fk_product_orders_orders1_idx` (`orders_id` ASC),

@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Stores_product::class, function (Faker $faker) {
     return [
-        //
+
     ];
 });
