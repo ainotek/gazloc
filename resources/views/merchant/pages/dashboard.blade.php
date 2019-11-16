@@ -865,4 +865,5 @@
                 </div>
             </div> <!-- / .row -->
         </div>
+
 @endsection

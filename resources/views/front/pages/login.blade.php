@@ -80,7 +80,7 @@
                     <!-- Link -->
                     <div class="text-center">
                         <small class="text-muted text-center">
-                            Pas encore de compte? <a href="{{route('MerchantRegister')}}">Enregistrez vous</a>.
+                            Pas encore de compte? <a href="{{route('register')}}">Enregistrez vous</a>.
                         </small>
                     </div>
                     <div class="text-center">

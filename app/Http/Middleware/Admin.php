@@ -2,11 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Carbon\Carbon;
 use Closure;
-use Illuminate\Support\Facades\Auth;
-use Flash;
-class LoggedMerchant
+
+class Admin
 {
     /**
      * Handle an incoming request.

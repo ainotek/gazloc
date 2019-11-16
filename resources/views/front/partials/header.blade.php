@@ -51,8 +51,8 @@
                                     <a href="{{ route('marchand.dashboard') }}" class="mr-2">Mon Compte</a>
                                     <a href="{{ route('logout') }}" class="ml-2">Deconnexion</a>
                                 @else
-                                    <a href="{{ route('Marchantlogin') }}" class="mr-2">Connexion</a>
-                                    <a href="{{ route('MerchantRegister') }}" class="ml-2">Enregistrement</a>
+                                    <a href="{{ route('login') }}" class="mr-2">Connexion</a>
+                                    <a href="{{ route('register') }}" class="ml-2">Enregistrement</a>
                                 @endauth
                             </div>
                         </div>

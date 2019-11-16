@@ -3,6 +3,10 @@
     namespace App\Http\Controllers;
 
     use App\Http\Controllers\Controller;
+    use App\Http\Services\MerchantService;
+    use App\Http\Services\OrderService;
+    use App\Http\Services\SupplierService;
+    use App\Http\Services\UserService;
     use App\Models\Store;
     use App\Models\User;
     use Carbon\Carbon;
@@ -17,21 +21,43 @@
     class MerchantController extends Controller
     {
         use RegistersUsers;
+        protected $usrService;
+        protected $orderService;
+        protected $merchantService;
+        protected $supplierService;
+
+        public function __construct(UserService $usrService,
+                                    MerchantService $merchantService,
+                                    SupplierService $supplierService,
+                                    OrderService $orderService)
+        {
+            $this->usrService = $usrService;
+            $this->orderService = $orderService;
+            $this->merchantService = $merchantService;
+            $this->supplierService = $supplierService;
+        }
 
         public function dashboard() {
             return view('merchant/pages/dashboard');
         }
         public function order() {
-            return view('merchant/pages/orders');
+            $orders = $this->orderService->getAllOrders();
+            return view('merchant/pages/orders', compact('orders'));
         }
-        public  function team() {
-            return view('merchant/pages/team');
-        }
-        public function supplier() {
-            return view('merchant/pages/suppliers');
-        }
-        public function logout(){
 
+        public  function team() {
+            $currentUser = Auth::user();
+            $store = $this->merchantService->getStoreByUser($currentUser);
+            $teamMembers = $this->usrService->getAllUserByStore($currentUser->stores_id);
+
+            //dd($currentStore);
+            return view('merchant/pages/team', compact(['teamMembers', 'store']));
+        }
+
+        public function supplier() {
+            $suppliers = $this->supplierService->getAllSuppliers();
+            $storeProducts = [''];
+            return view('merchant/pages/suppliers', compact('suppliers', 'storeProducts'));
         }
 
         /**
@@ -49,8 +75,10 @@
              key_exists('remember', $data) ? $remember = true : $remember = false;
 
             if (Auth::attempt($user, $remember)){
-                Auth::user()->last_login = new \DateTime();
-                return redirect('/marchand');
+                $user = Auth::user();
+                $user->last_login = new \DateTime();
+                $user->save();
+                return redirect()->route('merchant.dashboard');
             }
             else{
                 return back()->withInput()->withErrors([

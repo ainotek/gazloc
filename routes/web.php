@@ -16,17 +16,17 @@ Route::get('/', function () {return view('front.pages.home'); })->name('home');
 Route::get('/contact', function () {return view('front.pages.contact'); })->name('contact');
 Route::get('/blog', function () {return view('front.pages.blog'); })->name('blog');
 Route::get('/blog/{id}', function () {return view('front.pages.blog.details'); })->name('blog.details');
-Route::get('/commander', function () {return view('front.pages.ordering'); })->name('front.order');
+Route::get('/orders', function () {return view('front.pages.ordering'); })->name('front.order');
 Route::get('/services', function () {return view('front.pages.services'); })->name('services');
 
-Route::get('/connexion', function (){ return view('front.pages.login');})->name('Marchantlogin');
-Route::post('/authentification', 'MerchantController@authenticate')->name('authentication');
+Route::get('/login', function (){ return view('front.pages.login');})->name('login');
+Route::post('/authentication', 'MerchantController@authenticate')->name('authentication');
 
 Route::get('/inscription', function (){
     if(Auth::user()){
         return view('merchant/pages/dashboard');
     }
-    return view('front.pages.register');})->name('MerchantRegister');
+    return view('front.pages.register');})->name('register');
 
 Route::post('/inscription', 'MerchantController@create')->name('MerchantCreate');
 
@@ -64,7 +64,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     })->name('error');
 });
 
-Route::middleware(['App\Http\Middleware\LoggedMerchant'])->prefix('marchand')->name('marchand.')->group(function () {
+Route::middleware(['App\Http\Middleware\Logged', 'App\Http\Middleware\Merchant'])->prefix('merchant')->name('merchant.')->group(function () {
     Route::get('/', 'MerchantController@dashboard' )->name('dashboard');
     Route::get('commandes', 'MerchantController@order')->name('orders');
     Route::get('equipe', 'MerchantController@team')->name('team');

@@ -58,26 +58,26 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('marchand.dashboard') ? 'active' : '' }}"
-                       href="{{route('marchand.dashboard')}}" role="button" aria-controls="sidebarDashboards">
+                    <a class="nav-link {{ Request::routeIs('merchant.dashboard') ? 'active' : '' }}"
+                       href="{{route('merchant.dashboard')}}" role="button" aria-controls="sidebarDashboards">
                         <i class="fe fe-home"></i> Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('marchand.orders') ? 'active' : '' }}"
-                       href="{{route('marchand.orders')}}"  role="button" aria-expanded="false" aria-controls="sidebarPages">
+                    <a class="nav-link {{ Request::routeIs('merchant.orders') ? 'active' : '' }}"
+                       href="{{route('merchant.orders')}}"  role="button" aria-expanded="false" aria-controls="sidebarPages">
                         <i class="fe fe-dollar-sign"></i> Commandes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('marchand.team') ? 'active' : '' }}"
-                       href="{{route('marchand.team')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <a class="nav-link {{ Request::routeIs('merchant.team') ? 'active' : '' }}"
+                       href="{{route('merchant.team')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-users"></i> Equipe
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('marchand.suppliers') ? 'active' : '' }}"
-                       href="{{route('marchand.suppliers')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <a class="nav-link {{ Request::routeIs('merchant.suppliers') ? 'active' : '' }}"
+                       href="{{route('merchant.suppliers')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-truck"></i> Fournisseurs
                     </a>
                 </li>

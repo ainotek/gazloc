@@ -122,7 +122,7 @@
                 <!-- Link -->
                 <div class="text-center">
                     <small class="text-muted text-center">
-                        Vous avez déja un compte? <a href="{{route('Marchantlogin')}}">Connectez vous!</a>.
+                        Vous avez déja un compte? <a href="{{route('login')}}">Connectez vous!</a>.
                     </small>
                 </div>
                 <div class="text-center">

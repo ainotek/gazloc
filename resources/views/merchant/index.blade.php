@@ -19,7 +19,7 @@
     <!-- Theme CSS -->
 
     <link rel="stylesheet" href="{{asset('/css/theme.min.css')}}" id="stylesheetLight">
-    <link rel="stylesheet" href="{{asset('/css/theme-dark.min.css')}}" id="stylesheetDark">
+    {{-- <link rel="stylesheet" href="{{asset('/css/theme-dark.min.css')}}" id="stylesheetDark"> --}}
     <link rel="shortcut icon" href="{{asset('')}}/img/logo.svg">
 
     <title>Espace Marchant</title>

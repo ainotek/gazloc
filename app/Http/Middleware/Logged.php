@@ -2,11 +2,10 @@
 
 namespace App\Http\Middleware;
 
-use Carbon\Carbon;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use Flash;
-class LoggedMerchant
+
+class Logged
 {
     /**
      * Handle an incoming request.
@@ -17,6 +16,10 @@ class LoggedMerchant
      */
     public function handle($request, Closure $next)
     {
+        if (!Auth::user()){
+            return redirect()->route('Marchantlogin')->with('status', 'Vous devez être connecté pour voir cette page.');
+        }
+
         return $next($request);
     }
 }

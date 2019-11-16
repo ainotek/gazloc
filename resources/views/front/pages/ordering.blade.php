@@ -90,8 +90,8 @@
                                 @auth
                                     <a href="{{ route('marchand.dashboard') }}">Compte</a>
                                 @else
-                                    <a href="{{ route('Marchantlogin') }}" class="mr-2">Connexion</a>
-                                    <a href="{{ route('MerchantRegister') }}" class="ml-2">Enregistrement</a>
+                                    <a href="{{ route('login') }}" class="mr-2">Connexion</a>
+                                    <a href="{{ route('register') }}" class="ml-2">Enregistrement</a>
                                 @endauth
                             </div>
                         </div>

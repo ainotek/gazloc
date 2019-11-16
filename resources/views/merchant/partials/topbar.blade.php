@@ -12,7 +12,6 @@
                         <i class="fe fe-search"></i>
                     </div>
                 </div>
-
                 <!-- Menu -->
                 <div class="dropdown-menu dropdown-menu-card">
                     <div class="card-body">
@@ -24,7 +23,7 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar">
-                                            <img src="{{asset('')}}/img/avatars/teams/team-logo-1.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="" alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -452,7 +451,7 @@
                                     <div class="col-auto">
 
                                         <!-- Avatar -->
-                                        <div class="avatar avatar-sm">
+                                        <div class="avatar avatar-sm" >
                                             <img src="{{asset('')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
                                         </div>
 
@@ -487,7 +486,7 @@
 
                 <!-- Toggle -->
                 <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset('')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                    <img src="{{asset($user->picture)}}" alt="..." class="avatar-img rounded-circle">
                 </a>
 
                 <!-- Menu -->
