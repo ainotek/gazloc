@@ -20,6 +20,7 @@ class User extends Model implements Authenticatable
         'stores_id',
         'name',
         'email',
+        'phone',
         'password',
         'role',
         'active',

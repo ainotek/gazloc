@@ -64,7 +64,7 @@
                             <div class="col-auto">
                                 <!-- Avatar -->
                                 <span class="avatar avatar-lg">
-                                    <img src="{{$employee->picture}}" alt="..." class="avatar-img rounded-circle">
+                                    <img src="{{$employee->picture ?? asset('img/user.png')}}" alt="..." class="avatar-img rounded-circle">
                                 </span>
                             </div>
                             <div class="col ml-n2">
@@ -262,24 +262,24 @@
                     <div class="card-header">
 
                         <!-- Form -->
-                        <form action="" method="post">
+                        <form action="{{route('merchant.staff.add')}}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="name">Nom</label>
-                                <input type="text" class="form-control" id="name" placeholder="Nom prénom">
+                                <input name="name" type="text" class="form-control" id="name" placeholder="Nom prénom">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="email">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="email">
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Téléphone</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="05000000">
+                                <input name="phone" type="tel" class="form-control" id="phone" placeholder="05000000">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Mot de passe</label>
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                             </div>
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                         </form>

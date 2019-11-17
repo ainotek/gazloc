@@ -66,8 +66,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::middleware(['App\Http\Middleware\Logged', 'App\Http\Middleware\Merchant'])->prefix('merchant')->name('merchant.')->group(function () {
     Route::get('/', 'MerchantController@dashboard' )->name('dashboard');
+
     Route::get('commandes', 'MerchantController@order')->name('orders');
-    Route::get('equipe', 'MerchantController@team')->name('team');
+
+    Route::get('equipe', 'MerchantController@staffList')->name('staff.list');
+    Route::post('equipe', 'MerchantController@staffAdd')->name('staff.add');
+
     Route::get('fournisseurs', 'MerchantController@supplier')->name('suppliers');
 });
 

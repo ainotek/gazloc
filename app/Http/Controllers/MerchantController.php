@@ -26,11 +26,7 @@
         protected $merchantService;
         protected $supplierService;
 
-        public function __construct(UserService $usrService,
-                                    MerchantService $merchantService,
-                                    SupplierService $supplierService,
-                                    OrderService $orderService)
-        {
+        public function __construct(UserService $usrService, MerchantService $merchantService, SupplierService $supplierService, OrderService $orderService){
             $this->usrService = $usrService;
             $this->orderService = $orderService;
             $this->merchantService = $merchantService;
@@ -40,18 +36,27 @@
         public function dashboard() {
             return view('merchant/pages/dashboard');
         }
+
         public function order() {
             $orders = $this->orderService->getAllOrders();
             return view('merchant/pages/orders', compact('orders'));
         }
 
-        public  function team() {
+        public function staffList() {
             $currentUser = Auth::user();
             $store = $this->merchantService->getStoreByUser($currentUser);
             $teamMembers = $this->usrService->getAllUserByStore($currentUser->stores_id);
 
-            //dd($currentStore);
             return view('merchant/pages/team', compact(['teamMembers', 'store']));
+        }
+
+        public function staffAdd(Request $request) {
+            $store = $this->merchantService->getStoreByUser(Auth::user());
+            $data = $request->all();
+
+            $this->validator($data);
+            $this->createUser($data, $store);
+            return redirect()->route('merchant.staff.list');
         }
 
         public function supplier() {
@@ -103,6 +108,7 @@
 
             $store = $this->createStore($data);
 
+
             $this->createUser($data, $store);
 
             $this->authenticate($request);
@@ -140,10 +146,14 @@
          */
         protected function createUser(array $data, $store)
         {
+            if (!key_exists('phone', $data)){
+                $data['phone'] = '';
+            }
             return User::create([
-                'name' => $data['name']. '_ADMIN',
+                'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'phone' => $data['phone'],
                 'role' => 'MERCHANT',
                 'active' => true,
                 'expire_at' => new \DateTime(),
@@ -165,6 +175,7 @@
                 'name' => ['required', 'string', 'min:2', 'max:80'],
                 'city' => ['required', 'min:2', 'string'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'phone' => ['string', 'min:8', 'max:13'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
                 'password_confirmation' => ['required', 'string'],
             ]

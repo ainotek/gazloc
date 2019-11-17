@@ -70,8 +70,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('merchant.team') ? 'active' : '' }}"
-                       href="{{route('merchant.team')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                    <a class="nav-link {{ Request::routeIs('merchant.staff.list') ? 'active' : '' }}"
+                       href="{{route('merchant.staff.list')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-users"></i> Equipe
                     </a>
                 </li>

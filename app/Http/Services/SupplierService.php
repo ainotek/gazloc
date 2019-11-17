@@ -10,6 +10,6 @@ class SupplierService
 {
 
     public function getAllSuppliers(){
-        return Supplier::all();
+        return Supplier::orderBy('name')->get();
     }
 }
