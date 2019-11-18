@@ -88,7 +88,8 @@
                         <div class="urgent-call text-right">
                             <div class="top-right ">
                                 @auth
-                                    <a href="{{ route('marchand.dashboard') }}">Compte</a>
+                                    <a href="{{ route('merchant.dashboard') }}" class="mr-2">Mon Compte</a>
+                                    <a href="{{ route('logout') }}" class="ml-2">Deconnexion</a>
                                 @else
                                     <a href="{{ route('login') }}" class="mr-2">Connexion</a>
                                     <a href="{{ route('register') }}" class="ml-2">Enregistrement</a>

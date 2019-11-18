@@ -100,23 +100,26 @@
             <ul class="navbar-nav mb-md-4">
                 <li class="nav-item">
                     <a class="nav-link " href="getting-started.html">
-                        <i class="fe fe-clipboard"></i> Compte
+                        <i class="fe fe-clock"></i> Horaires
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarComponents" role="button" aria-expanded="false" aria-controls="sidebarComponents">
-                        <i class="fe fe-book-open"></i> paramètres
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link " href="changelog.html">
-                        <i class="fe fe-git-branch"></i> Formules <span class="badge badge-primary ml-auto">STANDARD</span>
+                        <i class="fe fe-share-2"></i> Services
                     </a>
                 </li>
             </ul>
 
             <!-- Push content down -->
-            <div class="mt-auto"></div>
+            <div class="mt-auto">
+                <a href="{{route('home')}}" class="btn btn-secondary mb-4">
+                    <i class="fe fe-home"></i> Accueil
+                </a>
+                <a href="{{route('logout')}}" class="btn btn-secondary mb-4">
+                    <i class="fe fe-log-out"></i> Sortir
+                </a>
+            </div>
+
 
             <!-- User (md) -->
             <div class="navbar-user d-none d-md-flex" id="sidebarUser" style="display: none !important">

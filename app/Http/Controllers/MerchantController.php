@@ -38,7 +38,7 @@
         }
 
         public function order() {
-            $orders = $this->orderService->getAllOrders();
+            $orders = $this->orderService->getAllSOrderByStore('');
             return view('merchant/pages/orders', compact('orders'));
         }
 

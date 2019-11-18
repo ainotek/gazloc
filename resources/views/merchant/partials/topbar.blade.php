@@ -18,13 +18,15 @@
 
                 <!-- Toggle -->
                 <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset($user->picture)}}" alt="..." class="avatar-img rounded-circle">
+                    <img src="{{asset($user->picture ?? asset('img/user.png'))}}" alt="..." class="avatar-img rounded-circle">
                 </a>
 
                 <!-- Menu -->
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href="#" class="dropdown-item">Profile</a>
-                    <hr class="dropdown-divider">
+                    {{--
+                      <a href="#" class="dropdown-item">Profile</a>
+                      <hr class="dropdown-divider">
+                    --}}
                     <a href="{{route('logout')}}" class="dropdown-item">Deconnexion</a>
                 </div>
 
