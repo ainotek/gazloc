@@ -24,16 +24,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         factory(Supplier::class, 5)->create();
-        factory(Product::class, 10)->create();
-        factory(Service::class, 30)->create();
-        factory(Store::class, 100)->create();
+        factory(Product::class, 5)->create();
+        factory(Service::class, 4)->create();
+        factory(Store::class, 15)->create();
         factory(Offered_service::class, 30)->create();
         factory(Stock::class, 30)->create();
-        //factory(Hour::class, 1)->create();
+        factory(Hour::class);
         factory(User::class, 25)->create();
         factory(Log::class, 50)->create();
         factory(Customer::class, 60)->create();
-        factory(Order::class, 120)->create();
-        factory(Order_detail::class, 120)->create();
+        factory(Order::class, 1200)->create();
+        factory(Order_detail::class, 1200)->create();
     }
 }
