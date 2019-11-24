@@ -4,12 +4,16 @@
 
 
 use App\Models\Product;
+use App\Models\Supplier;
 use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
+    $suppliers = Supplier::all()->pluck('id')->toArray();
+
     return [
-        'name' => $faker->sentence($nbWords = 4, $variableNbWords = true),
-        'desciption' => $faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'suppliers_id' => rand(1, 10)
+        'name' => $faker->word,
+        'description' => $faker->text,
+        'supplier_id' => $faker->randomElement($suppliers),
+        'picture' => 'http://atlas-content-cdn.pixelsquid.com/stock-images/gas-cylinder-5A0wywE-600.jpg'
     ];
 });

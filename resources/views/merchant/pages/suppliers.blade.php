@@ -80,18 +80,18 @@
                                 <div class="col">
 
                                     <!-- Time -->
-                                    <p class="card-text small text-muted">
+                                    <a href="{{route('merchant.product', ['id' => $supplier->id])}}" class="card-text small text-muted">
                                         <i class="fe fe-clipboard"></i> Produits
-                                    </p>
+                                    </a>
 
                                 </div>
                                 <div class="col-auto">
 
                                     <!-- Avatar group -->
                                     <div class="avatar-group">
-                                        @foreach($storeProducts as $storeProduct)
+                                        @foreach($supplier as $storeProduct)
                                             <a href="profile-posts.html" class="avatar avatar-xs" data-toggle="tooltip" title="" data-original-title="Ab Hadley">
-                                            <img src="{{asset('')}}/img/avatars/profiles/avatar-2.jpg" class="avatar-img rounded-circle" alt="...">
+                                            <img src="{{$storeProduct}}" class="avatar-img rounded-circle" alt="...">
                                         </a>
                                         @endforeach
                                     </div>

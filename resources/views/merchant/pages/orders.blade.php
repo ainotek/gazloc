@@ -37,7 +37,7 @@
                                 <ul class="nav nav-tabs nav-overflow header-tabs">
                                     <li class="nav-item">
                                         <a href="#!" class="nav-link">
-                                            Total <span class="badge badge-pill badge-soft-secondary">{{count($orders)}}</span>
+                                            Total <span class="badge badge-pill badge-soft-secondary">{{count($orders) ?? 0}}</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">

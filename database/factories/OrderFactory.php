@@ -7,10 +7,11 @@ use App\Models\Order;
 use Faker\Generator as Faker;
 
 $factory->define(Order::class, function (Faker $faker) {
-    $customer_id = Customer::all()->pluck('id')->toArray();
+    $customers = Customer::all()->pluck('id')->toArray();
+    $states = ['Delivered', 'Packaging', 'Hold', 'Cancel'];
     return [
-        'customers_id'=>$faker->randomElement($customer_id),
-        'state'=>$faker->text,
-        'order_number'=>$faker->randomNumber()
+        'customer_id'=>$faker->randomElement($customers),
+        'state'=>$faker->randomElement($states),
+        'order_number'=>$faker->swiftBicNumber
     ];
 });

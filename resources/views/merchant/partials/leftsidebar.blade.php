@@ -78,7 +78,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('merchant.suppliers') ? 'active' : '' }}"
                        href="{{route('merchant.suppliers')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
-                        <i class="fe fe-truck"></i> Fournisseurs
+                        <i class="fe fe-box"></i> Stock
                     </a>
                 </li>
                 <li class="nav-item d-md-none">

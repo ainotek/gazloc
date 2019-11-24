@@ -17,7 +17,7 @@ class Logged
     public function handle($request, Closure $next)
     {
         if (!Auth::user()){
-            return redirect()->route('Marchantlogin')->with('status', 'Vous devez être connecté pour voir cette page.');
+            return redirect()->route('login')->with('status', 'Vous devez être connecté pour voir cette page.');
         }
 
         return $next($request);

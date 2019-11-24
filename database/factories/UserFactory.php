@@ -30,12 +30,12 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => Hash::make('password'), // password
         'remember_token' => Str::random(10),
         'role' => $faker->randomElement($role),
-        'phone' => $faker->phoneNumber,
+        'phone' => $faker->randomNumber(8, false),
         'active' => $faker->boolean,
-        'last_login' => $faker->dateTime,
+        'last_login' => $faker->dateTimeThisMonth,
         'expire_at' => $faker->dateTimeBetween('now', '2 years'),
-        'picture' => ('https://randomuser.me/api/portraits/men/62.jpg'),
-        'stores_id' => $faker->randomElement($stores),
+        'picture' => ("https://randomuser.me/api/portraits/men/{$faker->randomNumber()}.jpg"),
+        'store_id' => $faker->randomElement($stores),
         'status' => $faker->randomElement($status)
     ];
 });

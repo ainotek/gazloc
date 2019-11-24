@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(Store::class, function (Faker $faker) {
     return [
         'phone' => $faker->randomNumber(8, false),
-        'name' => $faker->name,
+        'name' => $faker->word,
         'email' => $faker->safeEmail,
         'description' => $faker->text(120),
         'longitude' => $faker->longitude,
@@ -18,7 +18,7 @@ $factory->define(Store::class, function (Faker $faker) {
         'voted' => $faker->randomNumber(),
         'active' => $faker->boolean(90),
         'city' => $faker->city,
-        'location' => $faker->text(200),
+        'location' => $faker->word,
         'picture'=>$faker->imageUrl($width = 640, $height = 480),
         'expire_at' => $faker->dateTimeBetween('now', '2 years')
     ];

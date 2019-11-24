@@ -22,6 +22,8 @@ Route::get('/services', function () {return view('front.pages.services'); })->na
 Route::get('/login', function (){ return view('front.pages.login');})->name('login');
 Route::post('/authentication', 'MerchantController@authenticate')->name('authentication');
 
+Route::get('/password_forget', function (){ return view('merchant.pages.passwordForget');})->name('passwordForget');
+
 Route::get('/inscription', function (){
     if(Auth::user()){
         return view('merchant/pages/dashboard');
@@ -72,7 +74,9 @@ Route::middleware(['App\Http\Middleware\Logged', 'App\Http\Middleware\Merchant']
     Route::get('equipe', 'MerchantController@staffList')->name('staff.list');
     Route::post('equipe', 'MerchantController@staffAdd')->name('staff.add');
 
-    Route::get('fournisseurs', 'MerchantController@supplier')->name('suppliers');
+    Route::get('stock', 'MerchantController@supplier')->name('suppliers');
+    Route::get('stock/{id}/produits', 'MerchantController@product')->name('product');
+    Route::get('horaires', 'MerchantController@timesheet')->name('timesheet');
 });
 
 Route::any('/deconnexion', function (){ Auth::logout(); return redirect('/');})->name('logout');

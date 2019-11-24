@@ -158,7 +158,7 @@
                             <div class="col-auto">
 
                                 <time class="small text-muted" datetime="2018-10-28">
-                                    {{ \Carbon\Carbon::parse($store->expire_at)->format('d/m/Y')}}
+                                    {{ \Carbon\Carbon::parse($store->expire_at)->format('d/m/Y') ?? ''}}
                                 </time>
 
                             </div>

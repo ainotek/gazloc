@@ -16,6 +16,6 @@ $factory->define(Log::class, function (Faker $faker) {
         'object_type'=>$faker->randomElement($actions_type),
         'status'=>$faker->randomElement($status),
         'message'=>$faker->text(100),
-        'users_id'=>$faker->randomElement($user_id)
+        'user_id'=>$faker->randomElement($user_id)
     ];
 });
