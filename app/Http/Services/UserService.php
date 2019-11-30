@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Hash;
 class UserService
 {
 
-    public function getAllUserByStore($store_id){
-          return User::all()->where('stores_id', $store_id);
+    public function getAllUserByStore($store){
+        $users = DB::table('users')
+            ->where('store_id', '=', $store)->paginate(10);
+        return $users;
     }
 
     public function createUser(array $data, $store)
@@ -22,7 +24,7 @@ class UserService
             $data['phone'] = '00000000';
         }
         return User::create([
-            'store_id' => $store->id,
+            'store_id' => $store,
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),

@@ -60,7 +60,7 @@
                 <li class="nav-item">
                     <a class="nav-link {{ Request::routeIs('merchant.dashboard') ? 'active' : '' }}"
                        href="{{route('merchant.dashboard')}}" role="button" aria-controls="sidebarDashboards">
-                        <i class="fe fe-home"></i> Dashboard
+                        <i class="fe fe-home"></i>Tableau de bord
                     </a>
                 </li>
                 <li class="nav-item">
@@ -76,7 +76,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::routeIs('merchant.suppliers') ? 'active' : '' }}"
+                    <a class="nav-link {{ Request::routeIs('merchant.suppliers') ||
+                     Request::routeIs('merchant.product') ? 'active' : '' }}"
                        href="{{route('merchant.suppliers')}}" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-box"></i> Stock
                     </a>
@@ -99,13 +100,9 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-4">
                 <li class="nav-item">
-                    <a class="nav-link " href="getting-started.html">
-                        <i class="fe fe-clock"></i> Horaires
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#sidebarComponents" role="button" aria-expanded="false" aria-controls="sidebarComponents">
-                        <i class="fe fe-share-2"></i> Services
+                    <a class="nav-link {{ Request::routeIs('merchant.setting') ? 'active' : '' }}"
+                       href="{{route('merchant.setting')}}" role="button" aria-expanded="false" aria-controls="sidebarComponents">
+                        <i class="fe fe-share-2"></i> Paramètres
                     </a>
                 </li>
             </ul>
@@ -119,8 +116,6 @@
                     <i class="fe fe-log-out"></i> Sortir
                 </a>
             </div>
-
-
             <!-- User (md) -->
             <div class="navbar-user d-none d-md-flex" id="sidebarUser" style="display: none !important">
 
@@ -148,20 +143,14 @@
                         <hr class="dropdown-divider">
                         <a href="sign-in.html" class="dropdown-item">Logout</a>
                     </div>
-
                 </div>
-
                 <!-- Icon -->
                 <a href="#sidebarModalSearch" class="navbar-user-link" data-toggle="modal">
                   <span class="icon">
                     <i class="fe fe-search"></i>
                   </span>
                 </a>
-
             </div>
-
-
         </div> <!-- / .navbar-collapse -->
-
     </div>
 </nav>

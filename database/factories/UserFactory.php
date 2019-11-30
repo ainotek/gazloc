@@ -34,7 +34,7 @@ $factory->define(User::class, function (Faker $faker) {
         'active' => $faker->boolean,
         'last_login' => $faker->dateTimeThisMonth,
         'expire_at' => $faker->dateTimeBetween('now', '2 years'),
-        'picture' => ("https://randomuser.me/api/portraits/men/{$faker->randomNumber()}.jpg"),
+        'picture' => ("https://randomuser.me/api/portraits/men/{$faker->randomNumber(2)}.jpg"),
         'store_id' => $faker->randomElement($stores),
         'status' => $faker->randomElement($status)
     ];

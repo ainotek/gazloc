@@ -18,7 +18,7 @@
 
                 <!-- Toggle -->
                 <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="{{asset($user->picture ?? asset('img/user.png'))}}" alt="..." class="avatar-img rounded-circle">
+                    <img src="{{($user->picture ?? asset('img/user.png'))}}" alt="..." class="avatar-img rounded-circle">
                 </a>
 
                 <!-- Menu -->

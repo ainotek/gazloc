@@ -11,21 +11,13 @@
 
                             <!-- Pretitle -->
                             <h6 class="header-pretitle">
-                                Overview
+                                Marchand
                             </h6>
 
                             <!-- Title -->
                             <h1 class="header-title">
-                                Dashboard
+                                Tableau de bord
                             </h1>
-
-                        </div>
-                        <div class="col-auto">
-
-                            <!-- Button -->
-                            <a href="#!" class="btn btn-primary lift">
-                                Create Report
-                            </a>
 
                         </div>
                     </div> <!-- / .row -->
@@ -169,9 +161,19 @@
 
                                 </div>
                                 <div class="col-auto">
-
                                     <!-- Chart -->
-                                    <div class="chart chart-sparkline"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                                    <div class="chart chart-sparkline">
+                                        <div class="chartjs-size-monitor">
+                                            <div class="chartjs-size-monitor-expand">
+                                                <div class="">
+
+                                                </div>
+                                            </div>
+                                            <div class="chartjs-size-monitor-shrink">
+                                                <div class="">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <canvas class="chart-canvas chartjs-render-monitor" id="sparklineChart" width="150" height="70" style="display: block; height: 35px; width: 75px;"></canvas>
                                     </div>
 

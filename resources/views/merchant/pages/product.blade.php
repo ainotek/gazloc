@@ -44,7 +44,6 @@
                            data-toggle="tooltip" data-placement="top" data-original-title="{{$supplier->phone}}" >
                             <i class="fe fe-phone-call"></i>
                         </a>
-
                     </div>
                 </div> <!-- / .row -->
                 <div class="row align-items-center">

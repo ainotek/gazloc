@@ -2,7 +2,6 @@
 
     namespace App\Http\Controllers;
 
-    use App\Http\Controllers\Controller;
     use App\Http\Requests\UserRequest;
     use App\Http\Services\AuthenticationService;
     use App\Http\Services\MerchantService;
@@ -11,7 +10,6 @@
     use App\Http\Services\StockService;
     use App\Http\Services\SupplierService;
     use App\Http\Services\UserService;
-    use Exception;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Auth;
     use Illuminate\Foundation\Auth\RegistersUsers;
@@ -48,13 +46,13 @@
 
         public function staffList() {
             $store = $this->merchantService->getStoreByUser(Auth::user());
-            $teamMembers = $this->userService->getAllUserByStore(Auth::user()->stores_id);
-            return view('merchant/pages/team', compact(['teamMembers', 'store']));
+            $employees = $this->userService->getAllUserByStore(Auth::user()->store_id);
+            return view('merchant/pages/team', compact(['employees', 'store']));
         }
 
         public function supplier() {
-            //$suppliers = $this->supplierService->getSuppliersAndPRoductsByStore();
-            $suppliers = $this->stockService->getStockProductAndSupplier();
+            $suppliers = $this->supplierService->getSuppliersAndPRoductsByStore();
+            //$suppliers = $this->stockService->getStockProductAndSupplier();
             return view('merchant/pages/suppliers', compact('suppliers'));
         }
 
@@ -69,17 +67,19 @@
             return view('merchant/pages/timesheet');
         }
 
-        public function staffAdd(UserRequest $request) {
-            $store = $this->merchantService->getStoreByUser(Auth::user());
-            $data = $request->all();
+        public function setting() {
+            return view('merchant/pages/setting');
+        }
 
-            $this->userService->createUser($data, $store);
+        public function staffAdd(Request $request) {
+            $this->userService->createUser($request->all(), Auth::user()->store_id);
             return redirect()->route('merchant.staff.list');
         }
 
         public function authenticate(Request $request)
         {
-            $session = $this->authService->login($request->only('email', 'password'));
+            $remember = key_exists('remember', $request->all());
+            $session = $this->authService->login($request->only('email', 'password'), $remember);
             if ($session){
                 return redirect()->route('merchant.dashboard');
             }

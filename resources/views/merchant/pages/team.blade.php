@@ -57,7 +57,7 @@
             <div class="col-12 col-xl-8">
 
                 <!-- Single Store Team Member -->
-                @foreach($teamMembers as $employee)
+                @foreach($employees as $employee)
                     <div class="card mb-3">
                     <div class="card-body">
                         <div class="row align-items-center">
@@ -80,44 +80,36 @@
 
                                 <!-- Status -->
                                 <p class="card-text small">
-                                    <span class="text-success">●</span>{{strtolower($employee->status)}}
+                                    <span class="{{
+                                    (strtolower($employee->status) === 'expire') ? ' text-danger ' :
+                                    (strtolower($employee->status) === 'deactivated') ? ' text-warning ' :
+                                     'text-success' }}">
+                                        ●
+                                    </span>
+                                    {{strtolower($employee->status)}}
                                 </p>
 
                             </div>
                             <div class="col-auto">
 
                                 <!-- Button -->
-                                <a href="#!" class="btn btn-sm btn-primary d-none d-md-inline-block">
-                                    Subscribe
+                                <a href="#!" class="btn btn-sm btn-outline-warning d-none d-md-inline-block">
+                                    <i class="fe fe-lock"></i>
                                 </a>
 
-                            </div>
-                            <div class="col-auto">
-
-                                <!-- Dropdown -->
-                                <div class="dropdown">
-                                    <a href="#" class="dropdown-ellipses dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" data-expanded="false">
-                                        <i class="fe fe-more-vertical"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a href="#!" class="dropdown-item">
-                                            Action
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            Another action
-                                        </a>
-                                        <a href="#!" class="dropdown-item">
-                                            Something else here
-                                        </a>
-                                    </div>
-                                </div>
+                                <a href="#!" class="btn btn-sm btn-outline-danger d-none d-md-inline-block"
+                                   data-toggle="modal" data-target="#modalDeleteMembers">
+                                    <i class="fe fe-trash-2"></i>
+                                </a>
 
                             </div>
                         </div> <!-- / .row -->
                     </div> <!-- / .card-body -->
                 </div>
                 @endforeach
-
+                <div>
+                    {{$employees->render()}}
+                </div>
             </div>
             <div class="col-12 col-xl-4">
 
@@ -137,7 +129,7 @@
                             <div class="col-auto">
 
                                 <small class="text-muted">
-                                    {{count($teamMembers)}}
+                                    {{count($employees)}}
                                 </small>
 
                             </div>
@@ -214,15 +206,15 @@
 
                                 <!-- Title -->
                                 <h5 class="mb-0">
-                                    Owner
+                                    Magazin
                                 </h5>
 
                             </div>
                             <div class="col-auto">
 
-                                <a href="#!" class="small">
-                                    Dianna Smiley
-                                </a>
+                                <span class="small">
+                                    {{$store->name}}
+                                </span>
 
                             </div>
                         </div> <!-- / .row -->
@@ -267,27 +259,84 @@
                             <div class="form-group">
                                 <label for="name">Nom</label>
                                 <input name="name" type="text" class="form-control" id="name" placeholder="Nom prénom">
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $errors->first('name')  }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
+                                <label for="email">Email</label>
                                 <input name="email" type="email" class="form-control" id="email" placeholder="email">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $errors->first('email')  }}</strong>
+                                    </span>
+                                @enderror
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Téléphone</label>
+                                <label for="phone">Téléphone</label>
                                 <input name="phone" type="tel" class="form-control" id="phone" placeholder="05000000">
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $errors->first('phone')  }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Mot de passe</label>
-                                <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                <label for="password">Mot de passe</label>
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Password">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                         <strong>{{ $errors->first('password')  }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                         </form>
-
                     </div>
                     <div class="card-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Modal: Supress -->
+    <div class="modal fade" id="modalDeleteMembers" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-card card" data-toggle="lists" data-options='{"valueNames": ["name"]}'>
+                    <div class="card-header bg-secondary text-light text-center">
+                        <div class="row align-items-center ">
+                            <div class="col">
 
+                                <!-- Title -->
+                                <h4 class="card-header-title" id="exampleModalCenterTitle">
+                                    Etes vous sur?
+                                </h4>
+
+                            </div>
+                            <div class="col-auto">
+
+                                <!-- Close -->
+                                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+
+                            </div>
+                        </div> <!-- / .row -->
+                    </div>
+                    <div class="card-header text-center">
+                        <!-- Form -->
+                        <form action="{{route('merchant.staff.add')}}" method="post">
+                            @csrf
+                            <button type="reset" class="btn btn-secondary mx-3" data-dismiss="modal" aria-label="Close">Non</button>
+                            <button type="submit" class="btn btn-danger mx-3">Oui</button>
+                        </form>
+                    </div>
+                    <div class="card-body">
                     </div>
                 </div>
             </div>

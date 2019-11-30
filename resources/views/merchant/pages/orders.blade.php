@@ -12,21 +12,13 @@
 
                                 <!-- Pretitle -->
                                 <h6 class="header-pretitle">
-                                    Overview
+                                    Marchand
                                 </h6>
 
                                 <!-- Title -->
                                 <h1 class="header-title">
-                                    Orders
+                                    Commandes
                                 </h1>
-
-                            </div>
-                            <div class="col-auto">
-
-                                <!-- Button -->
-                                <a href="#" class="btn btn-primary lift">
-                                    New order
-                                </a>
 
                             </div>
                         </div> <!-- / .row -->
@@ -111,12 +103,12 @@
                                 </th>
                                 <th>
                                     <a href="#" class="text-muted sort" data-sort="orders-order">
-                                        Order
+                                        Commande n°
                                     </a>
                                 </th>
                                 <th>
                                     <a href="#" class="text-muted sort" data-sort="orders-product">
-                                        Product
+                                        Produit
                                     </a>
                                 </th>
                                 <th>
@@ -156,17 +148,17 @@
                                     {{$order->order_number}}
                                 </td>
                                 <td class="orders-product">
-                                    5' x 3' Wall Poster
+                                    {{$order->product_name}}
                                 </td>
                                 <td class="orders-date">
-                                    <time datetime="2018-07-30">07/30/18</time>
+                                    <time datetime="{{$order->created_at}}">{{$order->created_at}}</time>
                                 </td>
                                 <td class="orders-total">
-                                    $55.25
+                                    {{$order->price * $order->quantity}} FCFA
                                 </td>
                                 <td class="orders-status">
-                                    <div class="badge badge-soft-success">
-                                        Shipped
+                                    <div class="badge badge-soft-info">
+                                        {{$order->order_state}}
                                     </div>
                                 </td>
                                 <td class="orders-method">
@@ -194,6 +186,10 @@
                             @endforeach
                             </tbody>
                         </table>
+
+                        <span class="pull-right">
+                            {{$orders->render()}}
+                        </span>
                     </div>
                 </div>
 

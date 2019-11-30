@@ -77,6 +77,8 @@ Route::middleware(['App\Http\Middleware\Logged', 'App\Http\Middleware\Merchant']
     Route::get('stock', 'MerchantController@supplier')->name('suppliers');
     Route::get('stock/{id}/produits', 'MerchantController@product')->name('product');
     Route::get('horaires', 'MerchantController@timesheet')->name('timesheet');
+
+    Route::get('parametres', 'MerchantController@setting')->name('setting');
 });
 
 Route::any('/deconnexion', function (){ Auth::logout(); return redirect('/');})->name('logout');
