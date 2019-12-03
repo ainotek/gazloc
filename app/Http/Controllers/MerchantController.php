@@ -84,7 +84,7 @@
                 return redirect()->route('merchant.dashboard');
             }
             return back()->withInput()->withErrors([
-                'email' => "Nom d'utilisateur ou mot de passe incorect",
+                'email' => "Nom d'utilisateur ou mot de passe incorrect",
             ]);
         }
 

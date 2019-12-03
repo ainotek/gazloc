@@ -157,7 +157,12 @@
                                     {{$order->price * $order->quantity}} FCFA
                                 </td>
                                 <td class="orders-status">
-                                    <div class="badge badge-soft-info">
+                                    <div class="badge
+                                    {{($order->order_state === 'Hold') ? 'badge-soft-info' : ''}}
+                                    {{($order->order_state === 'Packaging') ? 'badge-soft-primary' : ''}}
+                                    {{($order->order_state === 'Delivered') ? 'badge-soft-success' : ''}}
+                                    {{($order->order_state === 'Cancel') ? 'badge-soft-danger' : ''}}
+                                        ">
                                         {{$order->order_state}}
                                     </div>
                                 </td>

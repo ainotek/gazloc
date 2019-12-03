@@ -225,6 +225,7 @@
 
                     <!-- Divider -->
                     <hr class="mt-4 mb-5">
+                    <h2 class="text-decoration-underline text-center mb-4">Changer de mot de passe</h2>
 
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-2">
@@ -234,28 +235,21 @@
                                 <div class="card-body">
 
                                     <p class="mb-2">
-                                        Password requirements
+                                        Prérequis mot de passe
                                     </p>
 
                                     <p class="small text-muted mb-2">
-                                        To create a new password, you have to meet all of the following requirements:
+                                        Le mot de passe doit respecter les critères suivant:
                                     </p>
 
                                     <ul class="small text-muted pl-4 mb-0">
                                         <li>
-                                            Minimum 8 character
+                                            Minimum 8 caractères
                                         </li>
                                         <li>
-                                            At least one special character
-                                        </li>
-                                        <li>
-                                            At least one number
-                                        </li>
-                                        <li>
-                                            Can’t be the same as a previous password
+                                            Au moins un caractère numérique
                                         </li>
                                     </ul>
-
                                 </div>
                             </div>
 
@@ -267,11 +261,11 @@
 
                                 <!-- Label -->
                                 <label>
-                                    Password
+                                    Ancien mot de passe
                                 </label>
 
                                 <!-- Input -->
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="password[old]">
 
                             </div>
 
@@ -280,11 +274,11 @@
 
                                 <!-- Label -->
                                 <label>
-                                    New password
+                                    Nouveau mot de passe
                                 </label>
 
                                 <!-- Input -->
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="password[new]">
 
                             </div>
 
@@ -293,17 +287,17 @@
 
                                 <!-- Label -->
                                 <label>
-                                    Confirm new password
+                                    Confirmer le mot de passe
                                 </label>
 
                                 <!-- Input -->
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="password[new_confirm]">
 
                             </div>
 
                             <!-- Submit -->
                             <button type="submit" class="btn btn-primary lift">
-                                Update password
+                                Sauvegarder
                             </button>
 
                         </div>
