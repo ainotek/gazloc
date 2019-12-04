@@ -19,7 +19,7 @@ Route::get('/blog/{id}', function () {return view('front.pages.blog.details'); }
 Route::get('/orders', function () {return view('front.pages.ordering'); })->name('front.order');
 Route::get('/services', function () {return view('front.pages.services'); })->name('services');
 
-Route::get('/login', function (){ return view('front.pages.login');})->name('login');
+Route::get('/login', 'MerchantController@loginView')->name('login');
 Route::post('/authentication', 'MerchantController@authenticate')->name('authentication');
 
 Route::get('/password_forget', function (){ return view('merchant.pages.passwordForget');})->name('passwordForget');

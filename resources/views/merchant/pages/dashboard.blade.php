@@ -186,95 +186,34 @@
                 </div>
             </div> <!-- / .row -->
             <div class="row">
-                <div class="col-12 col-xl-8">
 
+                <div class="col-12 col-xl-8">
                     <!-- Orders -->
                     <div class="card">
-                        <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
 
-                                    <!-- Title -->
-                                    <h4 class="card-header-title">
-                                        Orders
-                                    </h4>
-
-                                </div>
-                                <div class="col-auto mr-n3">
-
-                                    <!-- Caption -->
-                                    <span class="text-muted">
-                      Show affiliate:
-                    </span>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Switch -->
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="cardToggle" data-toggle="chart" data-target="#ordersChart" data-add="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[15,10,20,12,7,0,8,16,18,16,10,22],&quot;backgroundColor&quot;:&quot;#d2ddec&quot;,&quot;label&quot;:&quot;Affiliate&quot;}]}}">
-                                        <label class="custom-control-label" for="cardToggle"></label>
-                                    </div>
-
-                                </div>
-                            </div> <!-- / .row -->
-
-                        </div>
                         <div class="card-body">
 
                             <!-- Chart -->
-                            <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                                <canvas id="ordersChart" class="chart-canvas chartjs-render-monitor" width="1374" height="600" style="display: block; height: 300px; width: 687px;"></canvas>
+                            <div class="chart" style="height: auto !important;">
+                                <canvas id="myChart"></canvas>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
+
                 <div class="col-12 col-xl-4">
 
                     <!-- Devices -->
                     <div class="card">
-                        <div class="card-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-
-                                    <!-- Title -->
-                                    <h4 class="card-header-title">
-                                        Devices
-                                    </h4>
-
-                                </div>
-                                <div class="col-auto">
-
-                                    <!-- Tabs -->
-                                    <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-                                        <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[60,25,15]}]}}">
-                                            <a href="#" class="nav-link active" data-toggle="tab">
-                                                All
-                                            </a>
-                                        </li>
-                                        <li class="nav-item" data-toggle="chart" data-target="#devicesChart" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[15,45,20]}]}}">
-                                            <a href="#" class="nav-link" data-toggle="tab">
-                                                Direct
-                                            </a>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div> <!-- / .row -->
-
-                        </div>
                         <div class="card-body">
 
                             <!-- Chart -->
-                            <div class="chart chart-appended"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                                <canvas id="devicesChart" class="chart-canvas chartjs-render-monitor" data-toggle="legend" data-target="#devicesChartLegend" width="614" height="482" style="display: block; height: 241px; width: 307px;"></canvas>
+                            <div style="height: auto !important;" class="chart chart-appended">
+{{--                                --}}
+                                <canvas id="miChart" class="chart-canvas" width="600" height="400"></canvas>
                             </div>
 
                             <!-- Legend -->
-                            <div id="devicesChartLegend" class="chart-legend"><span class="chart-legend-item"><i class="chart-legend-indicator" style="background-color: #2C7BE5"></i>Desktop</span><span class="chart-legend-item"><i class="chart-legend-indicator" style="background-color: #A6C5F7"></i>Tablet</span><span class="chart-legend-item"><i class="chart-legend-indicator" style="background-color: #D2DDEC"></i>Mobile</span></div>
-
                         </div>
                     </div>
 

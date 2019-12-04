@@ -1317,7 +1317,7 @@
 
 <!-- NAVIGATION
 ================================================== -->
-@include('merchant.partials.leftsidebar'    )
+@include('merchant.partials.leftsidebar')
 
 <!-- MAIN CONTENT
 ================================================== -->
@@ -1337,7 +1337,7 @@
 <script src="{{asset('/libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js')}}"></script>
 <script src="{{asset('/libs/autosize/dist/autosize.min.js')}}"></script>
 <script src="{{asset('/libs/chart.js/dist/Chart.min.js')}}"></script>
-<script src="{{asset('/libs/dropzone/dist/min/dropzone.min.js')}}"></script>
+{{--<script src="{{asset('/libs/dropzone/dist/min/dropzone.min.js')}}"></script>--}}
 <script src="{{asset('/libs/flatpickr/dist/flatpickr.min.js')}}"></script>
 <script src="{{asset('/libs/highlightjs/highlight.pack.min.js')}}"></script>
 <script src="{{asset('/libs/jquery-mask-plugin/dist/jquery.mask.min.js')}}"></script>
@@ -1345,12 +1345,71 @@
 <script src="{{asset('/libs/quill/dist/quill.min.js')}}"></script>
 <script src="{{asset('/libs/select2/dist/js/select2.min.js')}}"></script>
 <script src="{{asset('/libs/chart.js/Chart.extension.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
 <!-- Map -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>
 
 <!-- Theme JS -->
-<script src="{{asset('/js/theme.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/theme.js/theme.min.js')}}"></script>
 <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var cty = document.getElementById('miChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Evolution de l\'activité',
+                backgroundColor: '#2c7be5',
+                borderColor: '#A6C5F7',
+                data: [40, 10, 5, 2, 20, 30, 45],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+    var myPieChart = new Chart(cty, {
+        type: 'doughnut',
+        data: {
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: ['#2C7BE5','#A6C5F7','#D2DDEC']
+            }],
+
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: [
+                'B12',
+                'B20',
+                'B70'
+            ]
+        },
+        options: {
+            aspectRatio: 10,
+            // layout: {
+            //     padding: {
+            //         left: 0,
+            //         right: 0,
+            //         top: 0,
+            //         bottom: 0,
+            //     }
+            // },
+            // responsive: true,
+            // cutoutPercentage: 90,
+            // legend: {
+            //     display: true,
+            // },
+            // title: {
+            //     display: true,
+            // },
+        }
+    });
+</script>
 </body>
 </html>

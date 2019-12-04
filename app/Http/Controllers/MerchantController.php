@@ -97,4 +97,9 @@
             $this->authenticate($request);
            return redirect()->route('merchant.dashboard');
         }
+
+        public function loginView()
+        {
+            return view('/front/pages/login');
+        }
     }

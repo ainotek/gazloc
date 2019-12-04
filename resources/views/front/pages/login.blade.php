@@ -1,7 +1,5 @@
 @extends('front.alternative')
-@section('title')
-    <title>Connexion</title>
-@stop
+
 @section('content')
             <div class="col-12 col-md-5 col-xl-4">
 
