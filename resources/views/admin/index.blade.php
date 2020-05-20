@@ -6,7 +6,7 @@
         <title>Gazloc - Votre partenaire de vie</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
+        <meta name="author" content="Ben Ouattara">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link rel="stylesheet" href="{{asset('/css/font-awesome.min.css')}}">
         <!-- App favicon -->
