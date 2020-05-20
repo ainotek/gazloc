@@ -9,8 +9,8 @@
                         <!-- banner text -->
                         <div class="banner-text-wrap text-center">
                             <span class="schoolbell"  data-animate="fadeInUp" data-delay=".4">Water is nothing, but life</span>
-                            <h1  data-animate="fadeInUp" data-delay=".55">Avec Gazloc <br>vous êtes livrer à votre porte.</h1>
-                            <a href="{{route('front.order')}}" class="btn"  data-animate="fadeInUp" data-delay=".7">Commander maintenant</a>
+                            <h1  data-animate="fadeInUp" data-delay=".55">{{__('With mineralo')}}  <br> {{__('get delivered at your door.')}}</h1>
+                            <a href="{{route('front.order')}}" class="btn"  data-animate="fadeInUp" data-delay=".7">{{__('Order now')}}</a>
                         </div>
                         <!-- End of banner text -->
                         <div class="banner-image"  data-trigger="parallax_layers">
