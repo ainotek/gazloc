@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,11 +24,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:2', 'max:80'],
-            'city' => ['nullable;', 'min:2', 'string'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['nullable','string', 'min:8', 'max:13'],
-            'password' => ['required', 'string', 'min:8'],
+            'name' => 'required|string|min:2|max:80',
+            'city' => 'nullable|min:2|string',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'string|min:8|max:13|nullable',
+            'password' => 'required|string|min:8',
         ];
     }
 }

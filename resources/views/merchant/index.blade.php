@@ -1345,7 +1345,7 @@
 <script src="{{asset('/libs/quill/dist/quill.min.js')}}"></script>
 <script src="{{asset('/libs/select2/dist/js/select2.min.js')}}"></script>
 <script src="{{asset('/libs/chart.js/Chart.extension.min.js')}}"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
 
 <!-- Map -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"></script>

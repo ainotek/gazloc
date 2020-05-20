@@ -27,9 +27,9 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer(['merchant.partials.topbar', 'merchant.partials.leftsidebar' ],
             function ($views){
-            $user = Auth::user();
-            $merchantService = new MerchantService();
-            //$userStore = $merchantService->getAllStoreUser($user->stores_id);
+                $user = Auth::user();
+                $merchantService = new MerchantService();
+                //$userStore = $merchantService->getAllStoreUser($user->stores_id);
                 $views->with('user', $user);
             });
     }

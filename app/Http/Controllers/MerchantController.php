@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\Http\Requests\MerchantLoginRequest;
     use App\Http\Requests\UserRequest;
     use App\Http\Services\AuthenticationService;
     use App\Http\Services\MerchantService;
@@ -76,7 +77,7 @@
             return redirect()->route('merchant.staff.list');
         }
 
-        public function authenticate(Request $request)
+        public function authenticate(MerchantLoginRequest $request)
         {
             $remember = key_exists('remember', $request->all());
             $session = $this->authService->login($request->only('email', 'password'), $remember);

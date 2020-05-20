@@ -17,6 +17,14 @@ class LoggedMerchant
      */
     public function handle($request, Closure $next)
     {
+        if (Auth::user()->role != 'MERCHANT'){
+            Auth::logout();
+            $flash =  ['status'=>'info', 'message'=> "Vous n'êtes pas authoriser à accéder à cette page."];
+            return redirect()
+                ->route('login')
+                ->with('flash', $flash)
+                ;
+        }
         return $next($request);
     }
 }
